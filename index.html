@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WaTasiana Custom Experience – Kenya Tours & Excursions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,300&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 15px; color: #333; background: #fff; }
+        a { color: #2a6f39; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* TOP BAR */
+        .topbar { background: #2a6f39; color: #fff; font-size: 12px; padding: 7px 30px; display: flex; justify-content: space-between; align-items: center; }
+        .topbar a { color: #fff; }
+
+        /* HEADER */
+        header { border-bottom: 1px solid #ddd; padding: 14px 30px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Merriweather', serif; font-size: 24px; font-weight: 300; color: #222; }
+        .logo span { color: #2a6f39; font-weight: 400; }
+        .logo small { font-size: 11px; color: #888; font-family: 'Open Sans', sans-serif; font-weight: 300; margin-left: 6px; }
+        nav { display: flex; }
+        nav a { font-size: 12px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: #444; padding: 8px 14px; border-bottom: 2px solid transparent; text-decoration: none; transition: color 0.2s; }
+        nav a:hover { color: #2a6f39; text-decoration: none; }
+        nav a.active { color: #2a6f39; border-bottom-color: #2a6f39; }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            height: 520px;
+            background: linear-gradient(to bottom right, rgba(0,0,0,0.55), rgba(0,0,0,0.25)),
+                        url('elephant_feeding.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+        }
+        .hero-inner { max-width: 1080px; margin: 0 auto; padding: 0 30px; width: 100%; }
+        .hero-inner small { display: block; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 14px; }
+        .hero-inner h1 { font-family: 'Merriweather', serif; font-size: 2.8rem; font-weight: 300; color: #fff; line-height: 1.25; margin-bottom: 16px; max-width: 560px; }
+        .hero-inner p { font-size: 15px; color: rgba(255,255,255,0.85); max-width: 520px; line-height: 1.8; margin-bottom: 28px; }
+        .btn-hero { display: inline-block; background: #2a6f39; color: #fff; padding: 13px 28px; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 2px; text-decoration: none; transition: background 0.2s; }
+        .btn-hero:hover { background: #1e5229; text-decoration: none; }
+
+        /* TRUST BAR */
+        .trust-bar { background: #f5f5f5; border-bottom: 1px solid #e5e5e5; padding: 20px 30px; }
+        .trust-inner { max-width: 1080px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .trust-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: #555; }
+        .trust-item .icon { font-size: 20px; }
+        .trust-item strong { display: block; font-size: 13px; color: #222; font-weight: 600; }
+        .trust-item span { font-size: 12px; color: #777; }
+
+        /* SECTION */
+        .section { max-width: 1080px; margin: 0 auto; padding: 50px 30px; }
+        .section-head { margin-bottom: 30px; padding-bottom: 14px; border-bottom: 1px solid #e5e5e5; display: flex; justify-content: space-between; align-items: baseline; }
+        .section-head h2 { font-family: 'Merriweather', serif; font-size: 1.55rem; font-weight: 300; color: #222; }
+        .section-head a { font-size: 13px; color: #2a6f39; }
+
+        /* TOUR CARDS GRID */
+        .tours-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+        .tour-card { border: 1px solid #ddd; transition: box-shadow 0.2s; }
+        .tour-card:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.1); }
+
+        .tour-card-img { position: relative; height: 195px; overflow: hidden; background: #ccc; }
+        .tour-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+        .tour-card:hover .tour-card-img img { transform: scale(1.04); }
+        .tour-card-img .badge {
+            position: absolute; top: 12px; left: 0;
+            background: #2a6f39; color: #fff;
+            font-size: 10px; font-weight: 600; letter-spacing: 0.08em;
+            text-transform: uppercase; padding: 4px 10px;
+        }
+
+        .tour-card-body { padding: 16px 16px 18px; }
+        .tour-card-body h3 { font-family: 'Merriweather', serif; font-size: 1.05rem; font-weight: 400; color: #222; margin-bottom: 8px; line-height: 1.35; }
+        .tour-card-body h3 a { color: #222; }
+        .tour-card-body h3 a:hover { color: #2a6f39; text-decoration: none; }
+        .tour-card-body p { font-size: 13.5px; line-height: 1.7; color: #555; margin-bottom: 14px; }
+
+        .tour-card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid #f0f0f0; }
+        .price { font-size: 13px; color: #555; }
+        .price strong { font-size: 1.25rem; color: #222; font-family: 'Merriweather', serif; font-weight: 400; }
+        .read-more { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #2a6f39; }
+
+        .quick-facts-row { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
+        .qf { font-size: 12px; color: #777; display: flex; align-items: center; gap: 4px; }
+        .qf::before { content: '•'; color: #2a6f39; font-weight: 700; }
+
+        /* PHILANTHROPY BANNER */
+        .philanthropy { background: #f0f7f2; border-top: 3px solid #2a6f39; border-bottom: 3px solid #2a6f39; padding: 36px 30px; margin: 0; }
+        .phil-inner { max-width: 1080px; margin: 0 auto; display: flex; align-items: flex-start; gap: 30px; }
+        .phil-icon { font-size: 44px; flex-shrink: 0; }
+        .phil-text h3 { font-family: 'Merriweather', serif; font-size: 1.15rem; font-weight: 400; color: #222; margin-bottom: 8px; }
+        .phil-text p { font-size: 13.5px; line-height: 1.8; color: #444; }
+
+        /* WHY US */
+        .why-us { background: #222; color: #fff; padding: 50px 30px; }
+        .why-inner { max-width: 1080px; margin: 0 auto; }
+        .why-inner h2 { font-family: 'Merriweather', serif; font-size: 1.45rem; font-weight: 300; margin-bottom: 30px; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+        .why-item .why-icon { font-size: 28px; margin-bottom: 10px; }
+        .why-item h4 { font-size: 14px; font-weight: 600; margin-bottom: 6px; color: #fff; }
+        .why-item p { font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.6); }
+
+        /* CONTACT STRIP */
+        .contact-strip { background: #2a6f39; color: #fff; padding: 28px 30px; text-align: center; }
+        .contact-strip p { font-size: 14px; margin-bottom: 6px; opacity: 0.85; }
+        .contact-strip .phones { font-size: 1.05rem; font-weight: 600; letter-spacing: 0.03em; }
+        .contact-strip a { color: #fff; }
+
+        /* FOOTER */
+        footer { background: #1a1a1a; color: rgba(255,255,255,0.6); padding: 46px 30px 28px; }
+        .footer-grid { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 24px; }
+        .footer-grid h4 { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; margin-bottom: 14px; }
+        .footer-grid ul { list-style: none; }
+        .footer-grid ul li { margin-bottom: 8px; }
+        .footer-grid ul li a { color: rgba(255,255,255,0.6); font-size: 13px; }
+        .footer-grid ul li a:hover { color: #fff; text-decoration: none; }
+        .footer-grid p { font-size: 13px; line-height: 1.8; }
+        .footer-bottom { max-width: 1080px; margin: 0 auto; font-size: 12px; opacity: 0.4; display: flex; justify-content: space-between; }
+
+        @media (max-width: 900px) {
+            .tours-grid { grid-template-columns: 1fr; }
+            .why-grid { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+            nav { display: none; }
+            .hero-inner h1 { font-size: 2rem; }
+            .trust-inner { flex-direction: column; }
+            .phil-inner { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+    <span>📞 &nbsp;+254 745 629 177 &nbsp;|&nbsp; +1 (424) 508 3082</span>
+    <span><a href="mailto:info@watasiana.africa">✉ info@watasiana.africa</a> &nbsp;|&nbsp; <a href="http://www.watasiana.africa">www.watasiana.africa</a></span>
+</div>
+
+<!-- HEADER -->
+<header>
+    <a href="index.html" class="logo">Wa<span>Tasiana</span><small>Custom Experience</small></a>
+    <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="#excursions">Excursions</a>
+        <a href="#about">About Us</a>
+        <a href="#give-back">Give Back</a>
+        <a href="mailto:info@watasiana.africa">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-inner">
+        <small>Nairobi, Kenya – Bespoke Day Excursions</small>
+        <h1>Extraordinary Kenya Experiences, Crafted For You</h1>
+        <p>Immersive half-day excursions around Nairobi — from elephant orphanages to cultural museums — all inclusive with professional guides, videographers and photographers.</p>
+        <a href="#excursions" class="btn-hero">Browse Excursions</a>
+    </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+    <div class="trust-inner">
+        <div class="trust-item">
+            <span class="icon">🏆</span>
+            <div><strong>All Inclusive</strong><span>Transport, fees & photography included</span></div>
+        </div>
+        <div class="trust-item">
+            <span class="icon">📸</span>
+            <div><strong>Professional Photographer</strong><span>Daniel captures every moment at no extra cost</span></div>
+        </div>
+        <div class="trust-item">
+            <span class="icon">🚐</span>
+            <div><strong>Hotel Pickup & Drop-off</strong><span>Door-to-door service within Nairobi</span></div>
+        </div>
+        <div class="trust-item">
+            <span class="icon">🌍</span>
+            <div><strong>15+ Years Experience</strong><span>Expert English-speaking guides</span></div>
+        </div>
+        <div class="trust-item">
+            <span class="icon">❌</span>
+            <div><strong>Free Cancellation</strong><span>Up to 48 hours before departure</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- EXCURSIONS -->
+<div class="section" id="excursions">
+    <div class="section-head">
+        <h2>Our Nairobi Excursions</h2>
+        <a href="mailto:info@watasiana.africa">Enquire about a custom tour →</a>
+    </div>
+
+    <div class="tours-grid">
+
+        <!-- TOUR 1: Elephant Orphanage -->
+        <div class="tour-card">
+            <div class="tour-card-img">
+                <img src="elephant_feeding.jpg" alt="Sheldrick Elephant Orphanage">
+                <span class="badge">Special Offer</span>
+            </div>
+            <div class="tour-card-body">
+                <h3><a href="elephant-orphanage.html">Sheldrick Elephant Orphanage Excursion</a></h3>
+                <div class="quick-facts-row">
+                    <span class="qf">Half Day (3–5 hrs)</span>
+                    <span class="qf">Daily departures</span>
+                    <span class="qf">All inclusive</span>
+                </div>
+                <p>A front-row encounter with orphaned baby elephants — watch feeding time, mud-bath playtime, and hear powerful rescue stories from dedicated keepers inside Nairobi National Park.</p>
+                <div class="tour-card-footer">
+                    <div class="price">From <strong>$65</strong> <span>per person</span></div>
+                    <a href="elephant-orphanage.html" class="read-more">Read More →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOUR 2: Giraffe Centre -->
+        <div class="tour-card">
+            <div class="tour-card-img">
+                <img src="mud_bath_play.jpg" alt="Giraffe Centre">
+                <span class="badge">Special Offer</span>
+            </div>
+            <div class="tour-card-body">
+                <h3><a href="giraffe-centre.html">Giraffe Centre Conservation Experience</a></h3>
+                <div class="quick-facts-row">
+                    <span class="qf">Half Day (3–4 hrs)</span>
+                    <span class="qf">Daily departures</span>
+                    <span class="qf">All inclusive</span>
+                </div>
+                <p>Stand eye-to-eye with endangered Rothschild's giraffes and hand-feed them from an elevated platform. Explore the Gogo River Bird Sanctuary and learn about vital breeding conservation programs.</p>
+                <div class="tour-card-footer">
+                    <div class="price">From <strong>$75</strong> <span>per person</span></div>
+                    <a href="giraffe-centre.html" class="read-more">Read More →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOUR 3: Museums -->
+        <div class="tour-card">
+            <div class="tour-card-img">
+                <img src="nairobi_orphanage.jpg" alt="Nairobi Cultural Museums Tour">
+                <span class="badge">Special Offer</span>
+            </div>
+            <div class="tour-card-body">
+                <h3><a href="museums-tour.html">Nairobi Cultural Experience – Museums Tour</a></h3>
+                <div class="quick-facts-row">
+                    <span class="qf">Half Day (4–5 hrs)</span>
+                    <span class="qf">Daily departures</span>
+                    <span class="qf">All inclusive</span>
+                </div>
+                <p>Explore Nairobi's rich heritage with visits to the Karen Blixen Museum, Nairobi National Museum, and the interactive Illusion Museum — plus a traditional Kenyan lunch at Nyuguna's Restaurant.</p>
+                <div class="tour-card-footer">
+                    <div class="price">From <strong>$95</strong> <span>per person</span></div>
+                    <a href="museums-tour.html" class="read-more">Read More →</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- PHILANTHROPY BANNER -->
+<div class="philanthropy">
+    <div class="phil-inner">
+        <div class="phil-icon">❤️</div>
+        <div class="phil-text">
+            <h3>Travel That Gives Back – WaTasiana Philanthropy Outreach Program</h3>
+            <p>A portion of every booking supports <strong>Wasichana Wetu</strong>, a nonprofit dedicated to empowering girls by rescuing them from forced early marriages, FGM, and harsh living conditions across Northern Kenya. Nine girls have already been rescued — all now safe, thriving, and in school. Your adventure becomes a force for meaningful change.</p>
+        </div>
+    </div>
+</div>
+
+<!-- WHY US -->
+<div class="why-us" id="about">
+    <div class="why-inner">
+        <h2>Why Travel With WaTasiana</h2>
+        <div class="why-grid">
+            <div class="why-item">
+                <div class="why-icon">🎯</div>
+                <h4>Truly All Inclusive</h4>
+                <p>Transport, entrance fees, and a professional videographer and photographer are all included in every excursion price.</p>
+            </div>
+            <div class="why-item">
+                <div class="why-icon">🧭</div>
+                <h4>Expert Local Guides</h4>
+                <p>Musa, our Director of Transportation, brings over 15 years of Nairobi guiding experience to every trip.</p>
+            </div>
+            <div class="why-item">
+                <div class="why-icon">🌿</div>
+                <h4>Conservation Focused</h4>
+                <p>Every excursion is chosen for its role in wildlife protection, cultural preservation, and responsible tourism.</p>
+            </div>
+            <div class="why-item">
+                <div class="why-icon">✨</div>
+                <h4>Personal Touch</h4>
+                <p>Marie, our Director of Excursions, personally plans every itinerary to ensure your experience is seamless and unforgettable.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CONTACT STRIP -->
+<div class="contact-strip" id="give-back">
+    <p>Ready to start your Kenya adventure? Our team is here to help.</p>
+    <div class="phones">
+        <a href="tel:+254745629177">+254 745 629 177</a> &nbsp;|&nbsp;
+        <a href="tel:+14245083082">+1 (424) 508 3082</a> &nbsp;|&nbsp;
+        <a href="mailto:info@watasiana.africa">info@watasiana.africa</a>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-grid">
+        <div>
+            <h4>WaTasiana Custom Experience</h4>
+            <p>Bespoke Kenya day excursions rooted in conservation, culture, and authentic connection. Based in Nairobi — serving travellers worldwide.</p>
+        </div>
+        <div>
+            <h4>Excursions</h4>
+            <ul>
+                <li><a href="elephant-orphanage.html">Elephant Orphanage</a></li>
+                <li><a href="giraffe-centre.html">Giraffe Centre</a></li>
+                <li><a href="museums-tour.html">Museums Cultural Tour</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Company</h4>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#give-back">Give Back</a></li>
+                <li><a href="mailto:info@watasiana.africa">Contact</a></li>
+                <li><a href="http://www.watasiana.africa">www.watasiana.africa</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <ul>
+                <li><a href="tel:+254745629177">+254 745 629 177 (Kenya)</a></li>
+                <li><a href="tel:+14245083082">+1 (424) 508 3082 (US)</a></li>
+                <li><a href="mailto:info@watasiana.africa">info@watasiana.africa</a></li>
+                <li>Nairobi, Kenya</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2025 WaTasiana Custom Experience. All rights reserved.</span>
+        <span>Prices subject to availability. No tourist tax in Kenya.</span>
+    </div>
+</footer>
+
+</body>
+</html>

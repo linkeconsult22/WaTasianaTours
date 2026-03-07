@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giraffe Centre Conservation Experience – WaTasiana Custom Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,300&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 15px; color: #333; background: #fff; }
+        a { color: #2a6f39; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .topbar { background: #2a6f39; color: #fff; font-size: 12px; padding: 7px 30px; display: flex; justify-content: space-between; align-items: center; }
+        .topbar a { color: #fff; }
+        header { border-bottom: 1px solid #ddd; padding: 14px 30px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Merriweather', serif; font-size: 22px; font-weight: 300; color: #222; }
+        .logo span { color: #2a6f39; font-weight: 400; }
+        .logo small { font-size: 11px; color: #888; font-family: 'Open Sans', sans-serif; font-weight: 300; margin-left: 4px; }
+        nav { display: flex; }
+        nav a { font-size: 12px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: #444; padding: 8px 14px; border-bottom: 2px solid transparent; text-decoration: none; }
+        nav a:hover { color: #2a6f39; text-decoration: none; }
+        nav a.active { color: #2a6f39; border-bottom-color: #2a6f39; }
+        .hero { position: relative; height: 400px; background: url('mud_bath_play.jpg') center/cover no-repeat; display: flex; align-items: flex-end; }
+        .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 60%); }
+        .hero-text { position: relative; padding: 28px 30px; color: #fff; }
+        .hero-text small { display: block; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; opacity: 0.8; }
+        .hero-text h1 { font-family: 'Merriweather', serif; font-size: 2.1rem; font-weight: 300; line-height: 1.25; margin-bottom: 10px; }
+        .hero-text p { font-size: 14px; opacity: 0.88; max-width: 500px; }
+        .breadcrumb-bar { background: #f5f5f5; border-bottom: 1px solid #e5e5e5; padding: 10px 30px; font-size: 12px; color: #777; }
+        .breadcrumb-bar a { color: #2a6f39; }
+        .breadcrumb-bar span { margin: 0 5px; }
+        .page-wrap { max-width: 1080px; margin: 0 auto; padding: 36px 30px 60px; display: grid; grid-template-columns: 1fr 290px; gap: 50px; }
+        .main-content h2 { font-family: 'Merriweather', serif; font-size: 1.45rem; font-weight: 300; color: #222; margin-bottom: 14px; padding-bottom: 11px; border-bottom: 1px solid #e5e5e5; }
+        .main-content p { line-height: 1.85; color: #444; margin-bottom: 14px; }
+        .highlight-list { list-style: none; margin: 22px 0; }
+        .highlight-list li { padding: 9px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; color: #444; display: flex; align-items: flex-start; gap: 10px; }
+        .highlight-list li::before { content: '✓'; color: #2a6f39; font-weight: 700; flex-shrink: 0; }
+        .section-subtitle { font-family: 'Merriweather', serif; font-size: 1.2rem; font-weight: 300; color: #222; margin: 34px 0 16px; padding-bottom: 10px; border-bottom: 1px solid #e5e5e5; }
+        .exp-cards { display: flex; flex-direction: column; gap: 20px; }
+        .exp-card { display: flex; gap: 18px; padding-bottom: 20px; border-bottom: 1px solid #f0f0f0; }
+        .exp-card img { width: 155px; height: 108px; object-fit: cover; flex-shrink: 0; background: #ddd; }
+        .exp-card h3 { font-family: 'Merriweather', serif; font-size: 1rem; font-weight: 400; margin-bottom: 7px; color: #222; }
+        .exp-card p { font-size: 13.5px; line-height: 1.75; color: #555; margin: 0; }
+        .fun-fact { background: #f0f7f2; border-left: 3px solid #2a6f39; padding: 15px 18px; margin: 26px 0; font-size: 14px; color: #333; line-height: 1.75; }
+        .fun-fact strong { color: #2a6f39; }
+        .itinerary-table { width: 100%; border-collapse: collapse; margin: 14px 0 28px; font-size: 14px; }
+        .itinerary-table tr { border-bottom: 1px solid #eee; }
+        .itinerary-table td { padding: 10px 8px; vertical-align: top; color: #444; }
+        .itinerary-table td:first-child { font-weight: 600; color: #2a6f39; white-space: nowrap; width: 130px; }
+        .philanthropy { background: #f0f7f2; border-left: 3px solid #2a6f39; padding: 16px 18px; margin: 26px 0; font-size: 14px; line-height: 1.8; color: #333; }
+        .philanthropy strong { color: #2a6f39; }
+        .sidebar-box { border: 1px solid #ddd; margin-bottom: 22px; }
+        .sidebar-box-head { background: #2a6f39; color: #fff; padding: 11px 16px; font-size: 12px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; }
+        .sidebar-box-body { padding: 16px; }
+        .price-display { text-align: center; padding: 10px 0 14px; border-bottom: 1px solid #eee; margin-bottom: 16px; }
+        .price-display .from { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 0.08em; }
+        .price-display .amount { font-family: 'Merriweather', serif; font-size: 2.2rem; font-weight: 300; color: #222; line-height: 1.1; }
+        .price-display .per { font-size: 12px; color: #888; }
+        .price-note { font-size: 11px; color: #2a6f39; text-align: center; margin-top: 4px; }
+        .form-group { margin-bottom: 12px; }
+        .form-group label { display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: #555; margin-bottom: 4px; }
+        .form-group input, .form-group select { width: 100%; padding: 8px 10px; border: 1px solid #ccc; font-family: 'Open Sans', sans-serif; font-size: 13.5px; color: #333; outline: none; }
+        .form-group input:focus, .form-group select:focus { border-color: #2a6f39; }
+        .btn-enquire { display: block; width: 100%; background: #2a6f39; color: #fff; border: none; padding: 11px; font-family: 'Open Sans', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
+        .btn-enquire:hover { background: #1e5229; }
+        .call-box { text-align: center; padding: 12px 0 2px; font-size: 13px; color: #555; }
+        .call-box a { display: block; font-size: 1rem; font-weight: 600; color: #222; margin-top: 3px; }
+        .quick-facts { list-style: none; font-size: 13.5px; }
+        .quick-facts li { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f0f0f0; color: #444; }
+        .quick-facts li span:first-child { color: #777; }
+        .quick-facts li span:last-child { font-weight: 600; color: #222; text-align: right; }
+        .related-list { list-style: none; }
+        .related-list li { padding: 8px 0; border-bottom: 1px solid #f0f0f0; font-size: 13.5px; }
+        footer { background: #1a1a1a; color: rgba(255,255,255,0.6); padding: 46px 30px 28px; }
+        .footer-grid { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 24px; }
+        .footer-grid h4 { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; margin-bottom: 14px; }
+        .footer-grid ul { list-style: none; }
+        .footer-grid ul li { margin-bottom: 8px; }
+        .footer-grid ul li a { color: rgba(255,255,255,0.6); font-size: 13px; }
+        .footer-grid ul li a:hover { color: #fff; text-decoration: none; }
+        .footer-grid p { font-size: 13px; line-height: 1.8; }
+        .footer-bottom { max-width: 1080px; margin: 0 auto; font-size: 12px; opacity: 0.4; display: flex; justify-content: space-between; }
+        @media (max-width: 800px) { .page-wrap { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; } nav { display: none; } .exp-card { flex-direction: column; } .exp-card img { width: 100%; height: 180px; } .hero { height: 300px; } }
+    </style>
+</head>
+<body>
+
+<div class="topbar">
+    <span>📞 +254 745 629 177 &nbsp;|&nbsp; +1 (424) 508 3082</span>
+    <span><a href="mailto:info@watasiana.africa">info@watasiana.africa</a></span>
+</div>
+<header>
+    <a href="index.html" class="logo">Wa<span>Tasiana</span><small>Custom Experience</small></a>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#excursions" class="active">Excursions</a>
+        <a href="index.html#about">About Us</a>
+        <a href="index.html#give-back">Give Back</a>
+        <a href="mailto:info@watasiana.africa">Contact</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-text">
+        <small>Langata, Nairobi · Half-Day Excursion · All Inclusive</small>
+        <h1>Giraffe Centre<br>Conservation Experience</h1>
+        <p>An up-close encounter with endangered Rothschild's giraffes at Nairobi's world-famous sanctuary</p>
+    </div>
+</div>
+<div class="breadcrumb-bar">
+    <a href="index.html">Home</a><span>›</span><a href="index.html#excursions">Excursions</a><span>›</span> Giraffe Centre Conservation Experience
+</div>
+
+<div class="page-wrap">
+    <div class="main-content">
+        <h2>About This Excursion</h2>
+        <p>Embark on a profound and unforgettable journey at the world-famous Giraffe Centre with WaTasiana Custom Experience. This is not simply a sightseeing trip — it is an immersive conservation experience where you witness first-hand the remarkable work being done to protect, breed, and educate about the critically endangered Rothschild's giraffe.</p>
+        <p>Founded in 1979 by the late Jock Leslie-Melville, the Centre was established to save the endangered Rothschild's giraffe. Today it stands as more than a tourist destination — it is a vital breeding sanctuary, a hub for environmental stewardship, and a beacon for conservation education. Along with being a once-in-a-lifetime photo opportunity, this experience allows you to actively contribute to the preservation of this endangered subspecies. Stand eye-to-eye with these gentle giants and become part of a remarkable conservation story.</p>
+
+        <ul class="highlight-list">
+            <li>Professional hotel pick-up and drop-off within Nairobi</li>
+            <li>Musa – English-speaking guide with 15+ years of experience</li>
+            <li>Daniel – Expert videographer and photographer at no extra cost (Media Release Form required)</li>
+            <li>Guided visit and hand-feeding of Rothschild's Giraffes from an elevated platform</li>
+            <li>Nature trail exploration through the Gogo River Bird Sanctuary</li>
+            <li>All Giraffe Centre entrance fees included</li>
+            <li>Optional traditional Kenyan lunch at Kilbaff Dinner and Cocktails Restaurant (not included)</li>
+        </ul>
+
+        <div class="fun-fact">
+            <strong>🦒 Fun Facts:</strong> A giraffe's tongue is 18–20 inches (46–51 cm) long and purplish-black to protect it from sunburn. Rothschild's giraffes are unique in having five ossicones — both males and females — which begin as cartilage and gradually harden into bone. Male ossicones become thick and bald from sparring, while females remain slender with tufts of hair.
+        </div>
+
+        <div class="section-subtitle">What You'll Experience</div>
+        <div class="exp-cards">
+            <div class="exp-card">
+                <img src="mud_bath_play.jpg" alt="Giraffe Feeding">
+                <div>
+                    <h3>The Feeding Experience</h3>
+                    <p>Stand face-to-face with majestic Rothschild's giraffes and hand-feed them specially formulated pellets from an elevated platform. Watch as their long purplish tongues gently reach out to take the food from your palm — an incredible sensation.</p>
+                </div>
+            </div>
+            <div class="exp-card">
+                <img src="nairobi_orphanage.jpg" alt="Nature Trail">
+                <div>
+                    <h3>Nature Trail & Bird Sanctuary</h3>
+                    <p>Explore the peaceful Gogo River Bird Sanctuary — a serene nature trail winding through indigenous forest home to warthogs, dik-diks, and more than 190 bird species. A tranquil complement to the giraffe encounter.</p>
+                </div>
+            </div>
+            <div class="exp-card">
+                <img src="elephant_feeding.jpg" alt="Conservation Story">
+                <div>
+                    <h3>Conservation Story</h3>
+                    <p>The Giraffe Centre's breeding and relocation programs have helped reintroduce Rothschild's giraffes into several national parks across Kenya. What began as a small effort to save an endangered species has become a globally recognized conservation success story.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-subtitle">Your Day Itinerary</div>
+        <table class="itinerary-table">
+            <tr><td>Hotel Pickup</td><td>Professional collection from your Nairobi hotel or residence</td></tr>
+            <tr><td>Arrival</td><td>Arrive at Giraffe Centre, Langata, Nairobi; welcome and briefing</td></tr>
+            <tr><td>Main Activity</td><td>Guided giraffe feeding from elevated platform, close wildlife encounters, giraffe personality profiles</td></tr>
+            <tr><td>Nature Trail</td><td>Exploration of Gogo River Bird Sanctuary through indigenous forest</td></tr>
+            <tr><td>Optional Lunch</td><td>Traditional Kenyan meal at Kilbaff Dinner and Cocktails Restaurant (own cost)</td></tr>
+            <tr><td>Return</td><td>Professional drop-off to your hotel or any Nairobi destination</td></tr>
+        </table>
+
+        <div class="philanthropy">
+            <strong>❤️ Travel That Gives Back:</strong> A portion of every booking supports <strong>Wasichana Wetu</strong>, a nonprofit rescuing girls from forced early marriages, FGM, and harsh living conditions across Northern Kenya. Nine girls have already been rescued — all now safe, thriving, and in school. Your adventure becomes a force for meaningful change.
+        </div>
+
+        <p style="font-size:13px;color:#777;margin-top:10px;">Prices are per person and subject to availability. No tourist tax in Kenya. Advance booking required.</p>
+    </div>
+
+    <div class="sidebar">
+        <div class="sidebar-box">
+            <div class="sidebar-box-head">Book This Excursion</div>
+            <div class="sidebar-box-body">
+                <div class="price-display">
+                    <div class="from">All Inclusive From</div>
+                    <div class="amount">$75</div>
+                    <div class="per">per person</div>
+                </div>
+                <p class="price-note">✓ Transport &amp; entrance fees included</p>
+                <br>
+                <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your name"></div>
+                <div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+                <div class="form-group"><label>Preferred Date</label><input type="date"></div>
+                <div class="form-group">
+                    <label>Number of Guests</label>
+                    <select><option>1 guest</option><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5+ guests</option></select>
+                </div>
+                <button class="btn-enquire">Send Enquiry</button>
+                <div class="call-box">Or call us now<br><a href="tel:+254745629177">+254 745 629 177</a><a href="tel:+14245083082">+1 (424) 508 3082</a></div>
+            </div>
+        </div>
+        <div class="sidebar-box">
+            <div class="sidebar-box-head">Trip Information</div>
+            <div class="sidebar-box-body" style="padding:0 16px;">
+                <ul class="quick-facts">
+                    <li><span>Price</span><span>From $75 p/p</span></li>
+                    <li><span>Duration</span><span>3–4 Hours</span></li>
+                    <li><span>Departs</span><span>Daily</span></li>
+                    <li><span>Location</span><span>Langata, Nairobi</span></li>
+                    <li><span>Includes</span><span>Fees + Guide + Photo</span></li>
+                    <li><span>Booking</span><span>Advance required</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sidebar-box">
+            <div class="sidebar-box-head">Ideal For</div>
+            <div class="sidebar-box-body"><p style="font-size:13.5px;line-height:1.75;color:#555;">Wildlife lovers, conservation enthusiasts, families, photographers, students, and travellers seeking a meaningful wildlife experience while visiting Nairobi.</p></div>
+        </div>
+        <div class="sidebar-box">
+            <div class="sidebar-box-head">Other Excursions</div>
+            <div class="sidebar-box-body" style="padding:0 16px;">
+                <ul class="related-list">
+                    <li><a href="elephant-orphanage.html">Sheldrick Elephant Orphanage</a></li>
+                    <li><a href="museums-tour.html">Nairobi Cultural Museums Tour</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div><h4>WaTasiana Custom Experience</h4><p>Bespoke Kenya day excursions rooted in conservation, culture, and authentic connection. Based in Nairobi — serving travellers worldwide.</p></div>
+        <div><h4>Excursions</h4><ul><li><a href="elephant-orphanage.html">Elephant Orphanage</a></li><li><a href="giraffe-centre.html">Giraffe Centre</a></li><li><a href="museums-tour.html">Museums Cultural Tour</a></li></ul></div>
+        <div><h4>Company</h4><ul><li><a href="index.html#about">About Us</a></li><li><a href="index.html#give-back">Give Back</a></li><li><a href="mailto:info@watasiana.africa">Contact</a></li></ul></div>
+        <div><h4>Contact</h4><ul><li><a href="tel:+254745629177">+254 745 629 177 (Kenya)</a></li><li><a href="tel:+14245083082">+1 (424) 508 3082 (US)</a></li><li><a href="mailto:info@watasiana.africa">info@watasiana.africa</a></li><li>Nairobi, Kenya</li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 WaTasiana Custom Experience. All rights reserved.</span><span>Prices subject to availability.</span></div>
+</footer>
+</body>
+</html>
