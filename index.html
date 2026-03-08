@@ -56,7 +56,9 @@
         .section-head a { font-size: 13px; color: #2a6f39; }
 
         /* TOUR CARDS GRID */
-        .tours-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .tours-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .badge-gold { background: #c8860a !important; }
+        .best-value-label { font-size: 10px; font-weight: 600; color: #c8860a; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px; display: block; }
 
         .tour-card { border: 1px solid #ddd; transition: box-shadow 0.2s; }
         .tour-card:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.1); }
@@ -120,7 +122,7 @@
         .footer-bottom { max-width: 1080px; margin: 0 auto; font-size: 12px; opacity: 0.4; display: flex; justify-content: space-between; }
 
         @media (max-width: 900px) {
-            .tours-grid { grid-template-columns: 1fr; }
+            .tours-grid { grid-template-columns: 1fr 1fr; }
             .why-grid { grid-template-columns: 1fr 1fr; }
             .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
             nav { display: none; }
@@ -135,7 +137,7 @@
 <!-- TOP BAR -->
 <div class="topbar">
     <span>📞 &nbsp;+254 745 629 177 &nbsp;|&nbsp; +1 (424) 508 3082</span>
-    <span><a href="mailto:info@watasiana.africa">✉ info@watasiana.africa</a> &nbsp;|&nbsp; <a href="http://www.watasiana.africa">www.watasiana.africa</a></span>
+    <span><a href="/cdn-cgi/l/email-protection#3950575f56794e584d584a5058575817585f4b505a58">✉ <span class="__cf_email__" data-cfemail="0b62656d644b7c6a7f6a78626a656a256a6d7962686a">[email&#160;protected]</span></a> &nbsp;|&nbsp; <a href="http://www.watasiana.africa">www.watasiana.africa</a></span>
 </div>
 
 <!-- HEADER -->
@@ -146,7 +148,7 @@
         <a href="#excursions">Excursions</a>
         <a href="#about">About Us</a>
         <a href="#give-back">Give Back</a>
-        <a href="mailto:info@watasiana.africa">Contact</a>
+        <a href="/cdn-cgi/l/email-protection#5e373038311e293f2a3f2d373f303f703f382c373d3f">Contact</a>
     </nav>
 </header>
 
@@ -190,10 +192,31 @@
 <div class="section" id="excursions">
     <div class="section-head">
         <h2>Our Nairobi Excursions</h2>
-        <a href="mailto:info@watasiana.africa">Enquire about a custom tour →</a>
+        <a href="/cdn-cgi/l/email-protection#9ff6f1f9f0dfe8feebfeecf6fef1feb1fef9edf6fcfe">Enquire about a custom tour →</a>
     </div>
 
     <div class="tours-grid">
+
+        <!-- TOUR 0: Full Day Tour - FEATURED -->
+        <div class="tour-card">
+            <div class="tour-card-img">
+                <img src="elephant_feeding.jpg" alt="Full Day Nairobi Tour">
+                <span class="badge badge-gold">⭐ Best Value</span>
+            </div>
+            <div class="tour-card-body">
+                <span class="best-value-label">Full Day · 4 Destinations</span>
+                <h3><a href="full-day-tour.html">Nairobi Wildlife, Conservation &amp; Culture Full Day Tour</a></h3>
+                <div class="quick-facts-row">
+                    <span class="qf">Full Day (9–10 hrs)</span>
+                    <span class="qf">Daily departures</span>
+                </div>
+                <p>The ultimate Nairobi day out — sunrise safari in Nairobi National Park, Elephant Orphanage, Giraffe Centre, and Nairobi National Museum all in one extraordinary day.</p>
+                <div class="tour-card-footer">
+                    <div class="price">From <strong>$150</strong> <span>per person</span></div>
+                    <a href="full-day-tour.html" class="read-more">Read More →</a>
+                </div>
+            </div>
+        </div>
 
         <!-- TOUR 1: Elephant Orphanage -->
         <div class="tour-card">
@@ -267,7 +290,8 @@
         <div class="phil-icon">❤️</div>
         <div class="phil-text">
             <h3>Travel That Gives Back – WaTasiana Philanthropy Outreach Program</h3>
-            <p>A portion of every booking supports <strong>Wasichana Wetu</strong>, a nonprofit dedicated to empowering girls by rescuing them from forced early marriages, FGM, and harsh living conditions across Northern Kenya. Nine girls have already been rescued — all now safe, thriving, and in school. Your adventure becomes a force for meaningful change.</p>
+            <p>A portion of every booking supports <a href="giveback.html" style="color:inherit;font-weight:700;text-decoration:underline;">Wasichana Wetu Rescue Charity</a>, a nonprofit dedicated to empowering girls by rescuing them from forced early marriages, FGM, and harsh living conditions across Northern Kenya. Seven girls are now safe, thriving, and in school. Your adventure becomes a force for meaningful change.</p>
+            <p style="margin-top:12px;"><a href="giveback.html" style="color:#2a6f39;font-weight:600;font-size:14px;">Read their full story and donate →</a></p>
         </div>
     </div>
 </div>
@@ -307,7 +331,7 @@
     <div class="phones">
         <a href="tel:+254745629177">+254 745 629 177</a> &nbsp;|&nbsp;
         <a href="tel:+14245083082">+1 (424) 508 3082</a> &nbsp;|&nbsp;
-        <a href="mailto:info@watasiana.africa">info@watasiana.africa</a>
+        <a href="/cdn-cgi/l/email-protection#b6dfd8d0d9f6c1d7c2d7c5dfd7d8d798d7d0c4dfd5d7"><span class="__cf_email__" data-cfemail="650c0b030a2512041104160c040b044b0403170c0604">[email&#160;protected]</span></a>
     </div>
 </div>
 
@@ -321,6 +345,7 @@
         <div>
             <h4>Excursions</h4>
             <ul>
+                <li><a href="full-day-tour.html">Full Day Nairobi Tour</a></li>
                 <li><a href="elephant-orphanage.html">Elephant Orphanage</a></li>
                 <li><a href="giraffe-centre.html">Giraffe Centre</a></li>
                 <li><a href="museums-tour.html">Museums Cultural Tour</a></li>
@@ -331,7 +356,8 @@
             <ul>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#give-back">Give Back</a></li>
-                <li><a href="mailto:info@watasiana.africa">Contact</a></li>
+                <li><a href="giveback.html">Wasichana Wetu Charity</a></li>
+                <li><a href="/cdn-cgi/l/email-protection#81e8efe7eec1f6e0f5e0f2e8e0efe0afe0e7f3e8e2e0">Contact</a></li>
                 <li><a href="http://www.watasiana.africa">www.watasiana.africa</a></li>
             </ul>
         </div>
@@ -339,17 +365,4 @@
             <h4>Contact</h4>
             <ul>
                 <li><a href="tel:+254745629177">+254 745 629 177 (Kenya)</a></li>
-                <li><a href="tel:+14245083082">+1 (424) 508 3082 (US)</a></li>
-                <li><a href="mailto:info@watasiana.africa">info@watasiana.africa</a></li>
-                <li>Nairobi, Kenya</li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <span>© 2025 WaTasiana Custom Experience. All rights reserved.</span>
-        <span>Prices subject to availability. No tourist tax in Kenya.</span>
-    </div>
-</footer>
-
-</body>
-</html>
+                <li><a href="tel:+14245083082">+1 (424) 508 3082 (US)<
