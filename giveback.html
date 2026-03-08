@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Give Back – Wasichana Wetu Rescue Charity – WaTasiana</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Open Sans', sans-serif; font-size: 15px; color: #333; background: #fff; }
+        a { color: #2a6f39; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* TOP BAR */
+        .topbar { background: #2a6f39; color: #fff; font-size: 12px; padding: 7px 30px; display: flex; justify-content: space-between; align-items: center; }
+        .topbar a { color: #fff; }
+
+        /* HEADER */
+        header { border-bottom: 1px solid #ddd; padding: 14px 30px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Merriweather', serif; font-size: 22px; font-weight: 300; color: #222; }
+        .logo span { color: #2a6f39; font-weight: 400; }
+        .logo small { font-size: 11px; color: #888; font-family: 'Open Sans', sans-serif; font-weight: 300; margin-left: 4px; }
+        nav { display: flex; }
+        nav a { font-size: 12px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: #444; padding: 8px 14px; border-bottom: 2px solid transparent; text-decoration: none; transition: color 0.2s; }
+        nav a:hover { color: #2a6f39; text-decoration: none; }
+        nav a.active { color: #2a6f39; border-bottom-color: #2a6f39; }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #7b1a1a 0%, #a52020 50%, #c8380a 100%);
+            padding: 70px 30px;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .hero-inner { position: relative; max-width: 700px; margin: 0 auto; }
+        .hero-eyebrow { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.75; margin-bottom: 14px; }
+        .hero h1 { font-family: 'Merriweather', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300; line-height: 1.3; margin-bottom: 20px; }
+        .hero h1 em { font-style: italic; }
+        .hero p { font-size: 16px; line-height: 1.8; opacity: 0.9; margin-bottom: 30px; }
+        .btn-donate {
+            display: inline-block;
+            background: #fff;
+            color: #a52020;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 14px 36px;
+            border-radius: 2px;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+        }
+        .btn-donate:hover { background: #f0f0f0; text-decoration: none; }
+
+        /* BREADCRUMB */
+        .breadcrumb-bar { background: #f5f5f5; border-bottom: 1px solid #e5e5e5; padding: 10px 30px; font-size: 12px; color: #777; }
+        .breadcrumb-bar a { color: #2a6f39; }
+        .breadcrumb-bar span { margin: 0 5px; }
+
+        /* CONTENT WRAP */
+        .content-wrap { max-width: 860px; margin: 0 auto; padding: 50px 30px 70px; }
+
+        /* SECTION TITLES */
+        .section-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.45rem;
+            font-weight: 300;
+            color: #222;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .section-title.red { color: #a52020; border-bottom-color: #a52020; }
+
+        .subsection-title {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #a52020;
+            margin: 30px 0 10px;
+        }
+
+        p { line-height: 1.9; color: #444; margin-bottom: 16px; }
+
+        /* QUOTE BLOCK */
+        .quote-block {
+            border-left: 4px solid #a52020;
+            background: #fdf5f5;
+            padding: 20px 24px;
+            margin: 28px 0;
+            font-family: 'Merriweather', serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            font-weight: 300;
+            color: #555;
+            line-height: 1.75;
+        }
+        .quote-block cite { display: block; font-style: normal; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #a52020; margin-top: 10px; font-family: 'Open Sans', sans-serif; }
+
+        /* STATS ROW */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px;
+            margin: 36px 0;
+            background: #eee;
+        }
+        .stat-box {
+            background: #fff;
+            padding: 22px 16px;
+            text-align: center;
+        }
+        .stat-box .num {
+            font-family: 'Merriweather', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: #a52020;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+        .stat-box .label { font-size: 12px; color: #666; line-height: 1.4; }
+
+        /* GIRLS GRID */
+        .girls-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0 36px; }
+        .girl-card {
+            border: 1px solid #eee;
+            padding: 18px 16px;
+            background: #fafafa;
+        }
+        .girl-card .girl-name { font-weight: 700; font-size: 14px; color: #a52020; margin-bottom: 4px; }
+        .girl-card .girl-age { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #888; margin-bottom: 8px; }
+        .girl-card p { font-size: 13.5px; line-height: 1.7; color: #555; margin: 0; }
+
+        /* MODEL STEPS */
+        .model-steps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 20px 0 32px; }
+        .model-step { background: #f5f5f5; border-top: 3px solid #a52020; padding: 18px 18px 20px; }
+        .model-step .step-num { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #a52020; margin-bottom: 6px; }
+        .model-step h4 { font-size: 14px; font-weight: 700; color: #222; margin-bottom: 6px; }
+        .model-step p { font-size: 13.5px; color: #555; line-height: 1.65; margin: 0; }
+
+        /* SCHOOL COSTS */
+        .cost-table { width: 100%; border-collapse: collapse; margin: 16px 0 28px; font-size: 14px; }
+        .cost-table th { background: #a52020; color: #fff; padding: 10px 12px; text-align: left; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
+        .cost-table td { padding: 10px 12px; border-bottom: 1px solid #eee; color: #444; }
+        .cost-table tr:nth-child(even) td { background: #fafafa; }
+        .cost-table .highlight { font-weight: 700; color: #222; }
+
+        /* DONATE BOX */
+        .donate-box {
+            background: linear-gradient(135deg, #7b1a1a, #a52020);
+            color: #fff;
+            padding: 44px 40px;
+            text-align: center;
+            margin: 50px 0 30px;
+        }
+        .donate-box h2 { font-family: 'Merriweather', serif; font-size: 1.6rem; font-weight: 300; margin-bottom: 12px; }
+        .donate-box p { font-size: 15px; opacity: 0.88; line-height: 1.8; margin-bottom: 28px; max-width: 560px; margin-left: auto; margin-right: auto; color: #fff; }
+        .donate-box .nonprofit-note { font-size: 12px; opacity: 0.65; margin-top: 14px; margin-bottom: 0; }
+        .btn-donate-large {
+            display: inline-block;
+            background: #fff;
+            color: #a52020;
+            font-weight: 700;
+            font-size: 15px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 16px 48px;
+            border-radius: 2px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .btn-donate-large:hover { background: #f5f5f5; text-decoration: none; }
+
+        /* SPONSOR AMOUNTS */
+        .sponsor-amounts { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin: 24px 0 10px; }
+        .sponsor-amt {
+            border: 2px solid rgba(255,255,255,0.4);
+            color: #fff;
+            padding: 10px 22px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .sponsor-amt:hover { background: rgba(255,255,255,0.15); border-color: #fff; text-decoration: none; color: #fff; }
+        .sponsor-amt.featured { background: #fff; color: #a52020; border-color: #fff; }
+
+        /* TEAM */
+        .team-list { list-style: none; margin: 14px 0 28px; }
+        .team-list li { padding: 9px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; color: #444; display: flex; gap: 10px; }
+        .team-list li::before { content: '→'; color: #a52020; font-weight: 700; flex-shrink: 0; }
+        .team-list li strong { color: #222; }
+
+        /* SIGNATURE */
+        .signature-block { background: #fdf5f5; border: 1px solid #f0d0d0; padding: 24px 28px; margin: 32px 0; }
+        .signature-block p { margin-bottom: 8px; color: #444; }
+        .signature-block .sig-name { font-family: 'Merriweather', serif; font-size: 1.1rem; font-style: italic; color: #a52020; }
+        .signature-block .sig-title { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #888; }
+
+        /* IMPACT NOTE */
+        .impact-note { background: #f0f7f2; border-left: 3px solid #2a6f39; padding: 16px 20px; margin: 28px 0; font-size: 14px; line-height: 1.8; color: #333; }
+        .impact-note strong { color: #2a6f39; }
+
+        /* FOOTER */
+        footer { background: #1a1a1a; color: rgba(255,255,255,0.6); padding: 46px 30px 28px; }
+        .footer-grid { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 24px; }
+        .footer-grid h4 { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; margin-bottom: 14px; }
+        .footer-grid ul { list-style: none; }
+        .footer-grid ul li { margin-bottom: 8px; }
+        .footer-grid ul li a { color: rgba(255,255,255,0.6); font-size: 13px; }
+        .footer-grid ul li a:hover { color: #fff; text-decoration: none; }
+        .footer-grid p { font-size: 13px; line-height: 1.8; }
+        .footer-bottom { max-width: 1080px; margin: 0 auto; font-size: 12px; opacity: 0.4; display: flex; justify-content: space-between; }
+
+        @media (max-width: 800px) {
+            nav { display: none; }
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+            .girls-grid { grid-template-columns: 1fr; }
+            .model-steps { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+            .donate-box { padding: 30px 20px; }
+            .sponsor-amounts { flex-direction: column; align-items: center; }
+            .topbar { flex-direction: column; gap: 4px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="topbar">
+    <span>📞 +254 745 629 177 &nbsp;|&nbsp; +1 (424) 508 3082</span>
+    <span><a href="mailto:info@watasiana.africa">info@watasiana.africa</a></span>
+</div>
+
+<header>
+    <a href="index.html" class="logo">Wa<span>Tasiana</span><small>Custom Experience</small></a>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#excursions">Excursions</a>
+        <a href="index.html#about">About Us</a>
+        <a href="giveback.html" class="active">Give Back</a>
+        <a href="mailto:info@watasiana.africa">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-eyebrow">WaTasiana Philanthropy · Nairobi, Kenya</div>
+        <h1>From a Mother's Legacy<br><em>to a Daughter's Purpose</em></h1>
+        <p>When you travel with WaTasiana, a portion of every booking supports <strong>Wasichana Wetu Rescue Charity</strong> — rescuing girls from FGM, forced marriage, and neglect in Northern Kenya.</p>
+        <a href="#donate" class="btn-donate">❤️ &nbsp;Donate Now</a>
+    </div>
+</section>
+
+<div class="breadcrumb-bar">
+    <a href="index.html">Home</a><span>›</span> Give Back – Wasichana Wetu Rescue Charity
+</div>
+
+<div class="content-wrap">
+
+    <!-- IMPACT STATS -->
+    <div class="stats-row">
+        <div class="stat-box"><div class="num">7</div><div class="label">Girls Rescued &amp; in School</div></div>
+        <div class="stat-box"><div class="num">501c3</div><div class="label">Registered Nonprofit, California</div></div>
+        <div class="stat-box"><div class="num">$825</div><div class="label">Sponsors One Girl for a Full Year</div></div>
+        <div class="stat-box"><div class="num">100%</div><div class="label">Funds Paid Directly to School</div></div>
+    </div>
+
+    <!-- THE STORY -->
+    <div class="section-title">The Story Behind WaTasiana &amp; Wasichana Wetu</div>
+
+    <p>My name is <strong>Marie Wambui</strong>. I was born and raised in Nairobi, Kenya. I left at 18 years of age in 1997 and now live in Los Angeles, California, raising my daughter Tasiana. My heart and mission remain deeply rooted in my home of Kenya.</p>
+
+    <p>My mom, <strong>Teresa Wanjiru Muigai</strong>, for years — and before she transitioned to heaven on April 21, 2024 — always reminded me and would say:</p>
+
+    <div class="quote-block">
+        "Waa, please remember to pay it forward — remember to make a way to give to others."
+        <cite>— Teresa Wanjiru Muigai</cite>
+    </div>
+
+    <p>I've only ever witnessed my mom giving to others and paying the school tuition for families who otherwise could not afford to. My mom was a follower of God and a successful single mother of three daughters, who worked as a diplomat at the United Nations Nairobi, Kenya office for 36 years. Yet with all her responsibilities, mom chose to be of service to others. I grew up watching this behavior modeled. This was a norm for me — seeing kindness and consideration from my mom to others. That intentional message remained with me throughout my life.</p>
+
+    <p>After my mom transitioned, I learnt she was still educating a young girl whose family had been facing hardship. In May 2024, I felt honoured to take over what my late mom started and to continue to honor her legacy. I currently have four children in Nairobi who I feel blessed to educate.</p>
+
+    <div class="subsection-title">How WaTasiana Was Born</div>
+
+    <p>In April 2025, while on our flight with Tasiana en route to my mom's one-year celebration of life in Nairobi, I wrote down a few prayer requests: <em>"God please allow me to create a business where I can provide jobs for my fellow Kenyans."</em> We returned home and in June 2025, with my background in the hospitality industry, I followed my passion to start a travel agency — yes, in Kenya, from Los Angeles.</p>
+
+    <p>Musa Lenkupae was our designated driver in Nairobi en route to the airport back to the US. I reached out to him with the idea and before we both knew it, we had assembled a remarkable team:</p>
+
+    <ul class="team-list">
+        <li><strong>Musa Lenkupae</strong> – Director of Transportation &amp; Lead Guide</li>
+        <li><strong>Daniel Misuko</strong> – Head of Content Creation &amp; Social Media Manager</li>
+        <li><strong>Grace Wanjeri</strong> – Booking Agent &amp; Data Protection Officer</li>
+        <li><strong>John Kanjele</strong> – Executive Chef</li>
+        <li><strong>Maureen Wanjohi</strong> – Excursions Creator &amp; Sous Chef</li>
+        <li><strong>Tasiana Wambui</strong> – Co-Founder &amp; WaTasiana Traveling Ambassador</li>
+        <li><strong>Marie Wambui</strong> – Owner, Founder &amp; Lead Excursions Curator</li>
+    </ul>
+
+    <p>I named the company after my daughter: <em>Wa</em> (short for our last name Wambui and the way my mom referred to me) and <em>Tasiana</em>, to honor my daughter. For Tasiana, her travel passion began at just two years old. Today, at thirteen, she has already immersed herself in the cultures of eleven countries spanning Africa, Europe, the Caribbean, North America, and South America — collectively, we have been to 17 countries.</p>
+
+    <!-- THE MOMENT THAT CHANGED EVERYTHING -->
+    <div class="section-title red" style="margin-top:44px;">The 48-Second Video That Changed Everything</div>
+
+    <p>In October 2025, a 48-second video revealed my true calling. That video was sent to me by Musa Lenkupae, who had received it from his cousin, <strong>Matthew Losieku</strong>, a young journalist in Wamba — a remote town in Samburu County, Kenya. Matthew came across it while preparing a proposal to provide sanitary pads for girls whose families could not afford them.</p>
+
+    <p>In the clip, a <strong>10-year-old girl named Mpopi</strong> spoke with heartbreaking clarity. She expressed her desire to care for her body to avoid early pregnancy and pleaded for the chance to go to school.</p>
+
+    <p>Although Female Genital Mutilation (FGM) and child marriage are illegal in Kenya, these practices persist in remote areas, robbing girls of their childhoods, health, and futures. I asked Matthew to find Mpopi to ensure she was safe and in school. He first sought permission from her mother and father, then located her at a local school that taught only Samburu (the tribal language) and lacked essential resources. Mpopi welcomed Matthew's visit and made a simple, powerful request:</p>
+
+    <div class="quote-block">
+        "Please find me a school where I can learn Kiswahili and English."
+        <cite>— Mpopi, age 10, Wamba, Samburu County</cite>
+    </div>
+
+    <p>Her plea opened the door. Within the months of October to December 2025, six more girls came forward — each fleeing FGM, forced marriage, or neglect. By the end of October 2025, <strong>Wasichana Wetu Rescue Charity</strong> was founded. <em>'Wasichana' means 'Daughters' or 'Girls' while 'Wetu' means 'Ours' — Our Daughters Rescue Charity.</em></p>
+
+    <p>The first four girls arrived with nothing but the clothes on their backs. We purchased bunk beds, mattresses, clothing, shoes, and all essentials. Our team has grown to include <strong>Chief Joel Lenkupae</strong> — a newly appointed head Chief in Wamba, Samburu East — who upholds the law and ensures anyone involved in illegal practices receives stern punishment, and <strong>Mama Rebecca Lenkupae</strong>, who opened her home as a safe house.</p>
+
+    <!-- MEET THE GIRLS -->
+    <div class="section-title red" style="margin-top:44px;">Meet Wasichana Wetu — Our Daughters</div>
+    <p>As of January 7, 2026, all seven girls have been successfully enrolled at <strong>Lentile Hills Academy</strong>, Nanyuki — a secure boarding school offering a strong educational foundation in a safe, nurturing environment rooted in faith, action, and results. Our WaTasiana Team facilitated the 600-kilometre transfer from Wamba to the boarding school.</p>
+
+    <div class="girls-grid">
+        <div class="girl-card">
+            <div class="girl-name">Sarafina</div>
+            <div class="girl-age">13 years old</div>
+            <p>Travelled 62 miles to safety after family members tried to sell her off.</p>
+        </div>
+        <div class="girl-card">
+            <div class="girl-name">Rose</div>
+            <div class="girl-age">14 years old</div>
+            <p>Trekked for miles before being guided to Mama Rebecca's safe house door.</p>
+        </div>
+        <div class="girl-card">
+            <div class="girl-name">Nancy</div>
+            <div class="girl-age">11 years old</div>
+            <p>Rescued by her uncle at age 8 from being sold off by her father.</p>
+        </div>
+        <div class="girl-card">
+            <div class="girl-name">Esther</div>
+            <div class="girl-age">11 years old</div>
+            <p>An orphan with no one to care for her — now safe and thriving in school.</p>
+        </div>
+        <div class="girl-card">
+            <div class="girl-name">Serianae</div>
+            <div class="girl-age">15 years old</div>
+            <p>Her brave mother removed her so her father would not sell her off.</p>
+        </div>
+        <div class="girl-card">
+            <div class="girl-name">Janet</div>
+            <div class="girl-age">13 years old</div>
+            <p>Her mother bravely resisted family pressure and sought safety for her daughter.</p>
+        </div>
+        <div class="girl-card" style="grid-column: span 1;">
+            <div class="girl-name">Mpopi</div>
+            <div class="girl-age">13 years old</div>
+            <p>The girl whose 48-second plea sparked the entire movement. Her father agreed not to force her into marriage if she could find a school.</p>
+        </div>
+    </div>
+
+    <!-- OUR MODEL -->
+    <div class="section-title" style="margin-top:10px;">Our Model: From Rescue to Rise</div>
+    <p>We have built a careful, legally-sound system that ensures every girl's journey is one toward safety, education, and empowerment. We work formally with local chiefs, authorities, and children's offices — securing documentation and ensuring each girl receives healthcare and wellness checks.</p>
+
+    <div class="model-steps">
+        <div class="model-step">
+            <div class="step-num">Step 1</div>
+            <h4>Rescue &amp; Advocacy</h4>
+            <p>Working formally with local chiefs and authorities to identify and legally remove girls from harmful situations.</p>
+        </div>
+        <div class="model-step">
+            <div class="step-num">Step 2</div>
+            <h4>Holistic Care</h4>
+            <p>A safe house in Samburu and comprehensive health support — girls arrive with nothing and receive everything they need.</p>
+        </div>
+        <div class="model-step">
+            <div class="step-num">Step 3</div>
+            <h4>Quality Education</h4>
+            <p>Full scholarships to Lentile Hills Academy, Nanyuki — a secure boarding school 600km from harm's reach.</p>
+        </div>
+        <div class="model-step">
+            <div class="step-num">Step 4</div>
+            <h4>Community Impact</h4>
+            <p>Initiatives that preserve Samburu culture while eliminating FGM, child marriage, and educational deprivation.</p>
+        </div>
+    </div>
+
+    <!-- SCHOOL COSTS -->
+    <div class="section-title">School Fees – Lentile Hills Academy, Nanyuki</div>
+    <p>All funds gathered through Wasichana Wetu Rescue Charity Inc. are paid directly to the school. This is a 501(c)(3) registered charity — your donation is <strong>tax deductible</strong>.</p>
+
+    <table class="cost-table">
+        <tr>
+            <th>Item</th>
+            <th>Cost (KSh)</th>
+            <th>Cost (USD)</th>
+        </tr>
+        <tr>
+            <td>One-time setup (mattress, uniform, books, clothing, shoes, essentials)</td>
+            <td>24,200 KSh</td>
+            <td class="highlight">$189 per child</td>
+        </tr>
+        <tr>
+            <td>Term 1 — Jan 5 to Apr 2, 2026 (13 weeks)</td>
+            <td>35,000 KSh</td>
+            <td class="highlight">$275</td>
+        </tr>
+        <tr>
+            <td>Term 2 — Apr 27 to Jul 31, 2026 (14 weeks)</td>
+            <td>35,000 KSh</td>
+            <td class="highlight">$275</td>
+        </tr>
+        <tr>
+            <td>Term 3 — Aug 24 to Oct 23, 2026 (9 weeks)</td>
+            <td>35,000 KSh</td>
+            <td class="highlight">$275</td>
+        </tr>
+        <tr style="background:#fdf5f5;">
+            <td><strong>Full Year Sponsorship (3 terms)</strong></td>
+            <td><strong>105,000 KSh</strong></td>
+            <td><strong style="color:#a52020;">$825 per girl</strong></td>
+        </tr>
+    </table>
+
+    <!-- DONATE SECTION -->
+    <div class="donate-box" id="donate">
+        <h2>Sponsor a Girl's Education</h2>
+        <p>Your contribution is more than a donation — it is an investment in ending FGM, child marriage, and neglect. It is a step toward a future where every daughter is safe, educated, and empowered.</p>
+
+        <div class="sponsor-amounts">
+            <a href="mailto:info@watasiana.africa?subject=Donation%20Enquiry%20-%20%2475" class="sponsor-amt">$75 — One Month</a>
+            <a href="mailto:info@watasiana.africa?subject=Donation%20Enquiry%20-%20%24189" class="sponsor-amt">$189 — Setup Costs</a>
+            <a href="mailto:info@watasiana.africa?subject=Donation%20Enquiry%20-%20%24275" class="sponsor-amt featured">$275 — One Full Term</a>
+            <a href="mailto:info@watasiana.africa?subject=Donation%20Enquiry%20-%20%24825" class="sponsor-amt">$825 — Full Year</a>
+        </div>
+
+        <br>
+        <a href="mailto:info@watasiana.africa?subject=I%20want%20to%20donate%20to%20Wasichana%20Wetu" class="btn-donate-large">❤️ &nbsp;Donate via Email</a>
+
+        <p class="nonprofit-note">Wasichana Wetu Rescue Charity Inc. is a registered 501(c)(3) nonprofit in California (as of January 9, 2026) with a dedicated Bank of America account. All funds are paid directly to Lentile Hills Academy. Tax deductible.</p>
+    </div>
+
+    <!-- WHY THIS MATTERS -->
+    <div class="impact-note">
+        <strong>🌍 WaTasiana: Where Travel Meets Transformation.</strong> The majestic landscapes you explore, like Samburu County, hold stories of both breathtaking beauty and profound challenge. Wasichana Wetu addresses a silent crisis that persists in these very regions. When you travel with WaTasiana, you are engaging with a living, breathing Kenya — you're not just witnessing beauty, you're becoming part of a story of hope.
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="signature-block">
+        <p>Thank you for reading their stories. Together, we can turn the tide. With Prayer, Commitment, Hope and Determination,</p>
+        <p class="sig-name">Marie Wambui</p>
+        <p class="sig-title">Founder, Wasichana Wetu Rescue Charity &amp; WaTasiana Custom Experience Tours &amp; Travel</p>
+        <br>
+        <p style="font-size:13px;color:#777;">To reach us while in Kenya: <a href="tel:+254745629177">+254 (0) 745 629 177</a> &nbsp;|&nbsp; While in the US: <a href="tel:+14245083082">+1 (424) 508 3082</a> &nbsp;|&nbsp; <a href="mailto:info@watasiana.africa">info@watasiana.africa</a></p>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-grid">
+        <div><h4>WaTasiana Custom Experience</h4><p>Bespoke Kenya day excursions rooted in conservation, culture, and authentic connection. Based in Nairobi — serving travellers worldwide.</p></div>
+        <div><h4>Excursions</h4><ul>
+            <li><a href="full-day-tour.html">Full Day Nairobi Tour</a></li>
+            <li><a href="elephant-orphanage.html">Elephant Orphanage</a></li>
+            <li><a href="giraffe-centre.html">Giraffe Centre</a></li>
+            <li><a href="museums-tour.html">Museums Cultural Tour</a></li>
+        </ul></div>
+        <div><h4>Company</h4><ul>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="giveback.html">Give Back</a></li>
+            <li><a href="mailto:info@watasiana.africa">Contact</a></li>
+        </ul></div>
+        <div><h4>Contact</h4><ul>
+            <li><a href="tel:+254745629177">+254 745 629 177 (Kenya)</a></li>
+            <li><a href="tel:+14245083082">+1 (424) 508 3082 (US)</a></li>
+            <li><a href="mailto:info@watasiana.africa">info@watasiana.africa</a></li>
+            <li>Nairobi, Kenya</li>
+        </ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 WaTasiana Custom Experience. All rights reserved.</span><span>Wasichana Wetu Rescue Charity is a 501(c)(3) nonprofit.</span></div>
+</footer>
+
+</body>
+</html>
